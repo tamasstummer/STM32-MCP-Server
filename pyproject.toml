@@ -1,0 +1,38 @@
+[project]
+name = "stm32-mcp"
+version = "0.1.0"
+description = "MCP server for STM32 build, flash, and serial communication"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Tamas Stummer"}]
+keywords = ["stm32", "mcp", "embedded", "firmware", "flash", "serial", "debug"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Embedded Systems",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "pyserial>=3.5",
+    "opencv-python>=4.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tamasstummer/STM32-MCP-Server"
+Repository = "https://github.com/tamasstummer/STM32-MCP-Server"
+
+[project.scripts]
+stm32-mcp = "stm32_mcp.server:main"
+stm32-serial = "stm32_mcp.serial_client:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/stm32_mcp"]
